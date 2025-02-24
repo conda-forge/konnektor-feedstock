@@ -12,21 +12,21 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=61.0
     - versioningit
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - gufe >=1,<2
     - numpy
     - rdkit
     - networkx
-    - scikit-mol
+    - scikit-mol <0.4.4
     - scikit-learn
     - ipycytoscape
 
@@ -37,6 +37,7 @@ test:
     - pytest --pyargs konnektor
   requires:
     - pytest
+    - python {{ python_min }}
 
 about:
   home: https://github.com/OpenFreeEnergy/konnektor

@@ -145,5 +145,6 @@ Feedstock Maintainers
 
 * [@IAlibay](https://github.com/IAlibay/)
 * [@RiesBen](https://github.com/RiesBen/)
+* [@atravitz](https://github.com/atravitz/)
 * [@mikemhenry](https://github.com/mikemhenry/)
 
