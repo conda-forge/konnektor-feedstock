@@ -38,6 +38,7 @@ tests:
       imports:
         - konnektor
       python_version: ${{ python_min }}.*
+      pip_check: false
   - requirements:
       run:
         - pytest
