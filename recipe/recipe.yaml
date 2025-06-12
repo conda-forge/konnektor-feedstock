@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: konnektor
-  version: 0.1.0
+  version: 0.2.0
 
 package:
   name: ${{ name|lower }}
@@ -13,7 +13,7 @@ source:
   sha256: 87aceb735c6407c0157576e1f23e45e050fb2f876a8b4d06e0674125af900c88
 
 build:
-  number: 2
+  number: 1
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -29,7 +29,7 @@ requirements:
     - numpy
     - rdkit
     - networkx
-    - scikit-mol <0.4.4
+    - scikit-mol>=0.5.5  # https://github.com/EBjerrum/scikit-mol/pull/68
     - scikit-learn
     - ipycytoscape
 
