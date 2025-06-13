@@ -32,6 +32,7 @@ requirements:
     - networkx
     - scikit-mol >=0.5.5  # https://github.com/EBjerrum/scikit-mol/pull/68
     - scikit-learn
+    - tqdm
     - ipycytoscape
 
 tests:
