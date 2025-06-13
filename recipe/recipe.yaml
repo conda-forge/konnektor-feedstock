@@ -2,7 +2,8 @@ schema_version: 1
 
 context:
   name: konnektor
-  version: 0.1.0
+  version: 0.2.0
+  python_min: "3.10"
 
 package:
   name: ${{ name|lower }}
@@ -10,18 +11,18 @@ package:
 
 source:
   url: https://github.com/OpenFreeEnergy/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 87aceb735c6407c0157576e1f23e45e050fb2f876a8b4d06e0674125af900c88
+  sha256: 9d5c6f2505e0b4e325ed3e39007f93497ead346e13bf4dbe77ba16ca835923b3
 
 build:
-  number: 2
+  number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }} ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - python ${{ python_min }}.*
     - setuptools >=61.0
-    - versioningit
+    - setuptools_scm
     - pip
   run:
     - python >=${{ python_min }}
@@ -29,8 +30,9 @@ requirements:
     - numpy
     - rdkit
     - networkx
-    - scikit-mol <0.4.4
+    - scikit-mol >=0.5.5  # https://github.com/EBjerrum/scikit-mol/pull/68
     - scikit-learn
+    - tqdm
     - ipycytoscape
 
 tests:
@@ -44,6 +46,7 @@ tests:
         - pytest
         - python ${{ python_min }}.*
     script:
+      - python -c "import ${{ name }}; print(${{ name }}.__version__)"
       - pytest --pyargs konnektor
 
 about:
