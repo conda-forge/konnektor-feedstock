@@ -1,10 +1,9 @@
-{% set python_min = '3.10' %}
-
 schema_version: 1
 
 context:
   name: konnektor
   version: 0.2.0
+  python_min: "3.10"
 
 package:
   name: ${{ name|lower }}
