@@ -16,13 +16,13 @@ source:
 build:
   number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }} ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - python ${{ python_min }}.*
     - setuptools >=61.0
-    - versioningit
+    - setuptools_scm
     - pip
   run:
     - python >=${{ python_min }}
@@ -45,6 +45,7 @@ tests:
         - pytest
         - python ${{ python_min }}.*
     script:
+      - python -c "import ${{ name }}; print(${{ name }}.__version__)"
       - pytest --pyargs konnektor
 
 about:
