@@ -1,3 +1,5 @@
+{% set python_min = '3.10' %}
+
 schema_version: 1
 
 context:
@@ -19,7 +21,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}.*
+    - python ${{ python_min }}
     - setuptools >=61.0
     - versioningit
     - pip
@@ -37,12 +39,12 @@ tests:
   - python:
       imports:
         - konnektor
-      python_version: ${{ python_min }}.*
+      python_version: ${{ python_min }}
       pip_check: false
   - requirements:
       run:
         - pytest
-        - python ${{ python_min }}.*
+        - python ${{ python_min }}
     script:
       - pytest --pyargs konnektor
 
