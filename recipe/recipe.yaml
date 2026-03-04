@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: konnektor
-  version: "0.2.1"
+  version: "0.3.0"
   python_min: "3.10"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/OpenFreeEnergy/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: b5ff2d56e2712f2e480dd6e3f8360dc9d332a2eae217b09d442dbda88961b3b3
+  sha256: 7d539820784948b274d0a0ea0314b905408350bc95dc714c3d43dac75e9fc0c9
 
 build:
   number: 0
@@ -21,8 +21,8 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - setuptools >=61.0
-    - setuptools_scm
+    - setuptools >=61.0  # see https://github.com/OpenFreeEnergy/konnektor/pull/187
+    - setuptools_scm >=8
     - pip
   run:
     - python >=${{ python_min }}
