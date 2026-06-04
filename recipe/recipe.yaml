@@ -21,7 +21,7 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - setuptools >=61.0  # see https://github.com/OpenFreeEnergy/konnektor/pull/187
+    - setuptools >=77.0.3
     - setuptools_scm >=8
     - pip
   run:
