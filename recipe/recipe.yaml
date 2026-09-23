@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/OpenFreeEnergy/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  sha256: 8357732c8d127adf6c5642e480e262324fc86803e22cd4171957df2e44fa9937
 
 build:
   number: 0
