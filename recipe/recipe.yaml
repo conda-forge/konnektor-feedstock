@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: konnektor
-  version: "0.4.0"
-  python_min: "3.10"
+  version: "0.5.0"
+  # python_min: "3.11"  # add back in if min differs from conda-forge default
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/OpenFreeEnergy/${{ name }}/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: c95c4e0c498d0f80167518d0d1c0d9972dc620ed060ff59fa9ba0b27a3d4725b
+  sha256: 8357732c8d127adf6c5642e480e262324fc86803e22cd4171957df2e44fa9937
 
 build:
   number: 0
@@ -21,7 +21,7 @@ build:
 requirements:
   host:
     - python ${{ python_min }}.*
-    - setuptools >=77.0.3
+    - setuptools >=80
     - setuptools_scm >=8
     - pip
   run:
@@ -39,7 +39,9 @@ tests:
   - python:
       imports:
         - konnektor
-      python_version: ${{ python_min }}.*
+      python_version:
+        -  ${{ python_min }}.*
+        - "*"
       pip_check: false
   - requirements:
       run:
